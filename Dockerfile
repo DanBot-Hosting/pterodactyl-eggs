@@ -34,6 +34,9 @@ RUN apt-get update && \
     # Python 2 & 3
 RUN apt -y install python python-pip python3 python3-pip
 
+    # Golang
+RUN apt -y install golang
+
 USER container
 ENV  USER container
 ENV  HOME /home/container
