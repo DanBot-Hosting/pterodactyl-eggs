@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1",
+        "update_url": null
+    },
+    "exported_at": "2021-05-18T22:02:56-04:00",
+    "name": "ShareX Upload Server",
+    "author": "parker@parkervcp.com",
+    "description": "ShareX Egg, Made by DBH",
+    "features": null,
+    "images": [
+        "quay.io\/parkervcp\/pterodactyl-images:debian_nodejs-12"
+    ],
+    "file_denylist": [],
+    "startup": "\/usr\/local\/bin\/node \/home\/container\/src\/index.js",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"\"\r\n}",
+        "logs": "{}",
+        "stop": "^c"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#\/bin\/ash\r\n\r\napk add --no-cache git make gcc g++ python\r\n\r\ncd \/mnt\/server\r\n\r\ngit clone https:\/\/github.com\/TannerReynolds\/ShareX-Upload-Server .\r\n\r\n\/usr\/local\/bin\/npm install\r\n\r\necho -e \"install complete\"\r\nexit 0",
+            "container": "node:10-alpine",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": []
+}
