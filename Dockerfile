@@ -37,6 +37,9 @@ RUN apt -y install python python-pip python3 python3-pip
     # Golang
 RUN apt -y install golang
 
+#Yarn and Pm2 support for AIO
+RUN npm i -g yarn pm2
+
 USER container
 ENV  USER container
 ENV  HOME /home/container
