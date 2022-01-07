@@ -4,9 +4,9 @@
         "version": "PTDL_v1"
     },
     "exported_at": "2020-11-16T00:26:44-05:00",
-    "name": "AIO",
+    "name": "AIO (ALL IN ONE)",
     "author": "dan@danbot.host",
-    "description": "Python2, Python3.7, Node.JS 14, Java 11",
+    "description": "Python2, Python3.7, Node.JS 17, Java 11",
     "features": null,
     "image": "danbothosting\/aio",
     "startup": "${STARTUP_CMD}",
@@ -26,7 +26,7 @@
     "variables": [
         {
             "name": "Startup Command",
-            "description": "The startup command for your bot to use",
+            "description": "The startup command for your the server to use",
             "env_variable": "STARTUP_CMD",
             "default_value": "bash",
             "user_viewable": true,
