@@ -27,7 +27,7 @@ RUN curl -sL https://deb.nodesource.com/setup_17.x | bash - \
     && apt -y install wget \ 
     && apt -y install curl
     
-# Install basic software support
+    # Install basic software support
 RUN apt-get update && \
     apt-get install --yes software-properties-common
     
@@ -37,8 +37,8 @@ RUN apt -y install python python-pip python3 python3-pip
     # Golang
 RUN apt -y install golang
 
-#Yarn and Pm2 support for AIO
-RUN npm i -g yarn pm2
+    # Yarn, Pm2 and Pnpm support for AIO
+RUN npm i -g yarn pm2 pnpm
 
 USER container
 ENV  USER container
