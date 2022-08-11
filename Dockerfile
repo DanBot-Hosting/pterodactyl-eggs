@@ -37,8 +37,8 @@ RUN apt -y install python python-pip python3 python3-pip
     # Golang
 RUN apt -y install golang
 
-    # PHP
-RUN apt -y install php php-cli php-mbstring php-xml php-common php-curl
+    # PHP, PHP-FPM & Nginx
+RUN apt -y install php php-fpm nginx php-cli php-mbstring php-xml php-common php-curl
 
     # Yarn, Pm2 and Pnpm support for AIO
 RUN npm i -g yarn pm2 pnpm
