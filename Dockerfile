@@ -5,7 +5,7 @@ MAINTAINER danielpmc, <danielpd93@gmail.com>
 RUN apt update \
     && apt upgrade -y \
     && apt -y install curl software-properties-common locales git \
-    && apt-get install -y default-jre \
+    && apt-get install -y openjdk-17-jre \
     && useradd -d /home/container -m container \
     && apt-get update
 
@@ -19,7 +19,7 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
     # NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_17.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_current.x | bash - \
     && apt -y install nodejs \
     && apt -y install ffmpeg \
     && apt -y install make \
@@ -29,7 +29,7 @@ RUN curl -sL https://deb.nodesource.com/setup_17.x | bash - \
     
 # Install basic software support
 RUN apt-get update && \
-    apt-get install --yes software-properties-common
+    apt-get install -y software-properties-common
     
     # Python 2 & 3
 RUN apt -y install python python-pip python3 python3-pip
