@@ -1,16 +1,16 @@
 {
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
     "meta": {
-        "version": "PTDL_v1",
+        "version": "PTDL_v2",
         "update_url": null
     },
     "exported_at": "2021-05-18T22:02:56-04:00",
     "name": "ShareX Upload Server",
-    "author": "danielpd93@gmail.com",
+    "author": "dan@danbot.host",
     "description": "ShareX Egg, Made by DBH",
     "features": null,
     "images": [
-        "quay.io\/parkervcp\/pterodactyl-images:debian_nodejs-12"
+        "quay.io\/parkervcp\/pterodactyl-images:debian_nodejs-16"
     ],
     "file_denylist": [],
     "startup": "\/usr\/local\/bin\/node \/home\/container\/src\/index.js",
