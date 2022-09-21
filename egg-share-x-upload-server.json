@@ -10,7 +10,7 @@
     "description": "ShareX Egg, Made by DBH",
     "features": null,
     "images": [
-        "ghcr.io\/parkervcp\/yolks:nodejs_18"
+        "quay.io\/parkervcp\/pterodactyl-images:debian_nodejs-16"
     ],
     "file_denylist": [],
     "startup": "\/usr\/local\/bin\/node \/home\/container\/src\/index.js",
