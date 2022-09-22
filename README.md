@@ -3,3 +3,7 @@ This repository stores all of our custom docker images and eggs that we use for 
 You are welcomed to take any of these eggs and use them on Pterodactyl panel, just remember to follow the LICENSE!
 
 To see the different docker images you can select a different branch.
+
+# Contributing:
+
+Fork the Repository, make changes, make pull request. Simple enough. Devs will go over PR to check over it. If approved, it gets merged. If not, it gets closed.
