@@ -7,7 +7,7 @@
     "exported_at": "2021-05-18T22:02:56-04:00",
     "name": "ShareX Upload Server",
     "author": "dan@danbot.host",
-    "description": "ShareX Egg, Made by DBH",
+    "description": "Tanner ShareX Egg, Made by DanBot-Hosting.",
     "features": null,
     "images": [
         "quay.io\/parkervcp\/pterodactyl-images:debian_nodejs-16"
