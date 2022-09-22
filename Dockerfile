@@ -9,16 +9,16 @@ RUN apt update \
     && useradd -d /home/container -m container \
     && apt-get update
 
-    # Grant sudo permissions to container user for commands
+# Grant sudo permissions to container user for commands
 RUN apt-get update && \
     apt-get -y install sudo
 
-    # Ensure UTF-8
+# Ensure UTF-8
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-    # NodeJS
+# NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_current.x | bash - \
     && apt -y install nodejs \
     && apt -y install ffmpeg \
@@ -31,13 +31,13 @@ RUN curl -sL https://deb.nodesource.com/setup_current.x | bash - \
 RUN apt-get update && \
     apt-get install -y software-properties-common
     
-    # Python 2 & 3
+# Python 2 & 3
 RUN apt -y install python python-pip python3 python3-pip
 
-    # Golang
+# Golang
 RUN apt -y install golang
 
-#Yarn and Pm2 support for AIO
+# Installing NodeJS dependencies for AIO.
 RUN npm i -g yarn pm2
 
 USER container
