@@ -1,6 +1,6 @@
 FROM debian:buster
 
-MAINTAINER danielpmc, <danielpd93@gmail.com>
+MAINTAINER danielpmc, <dan@danbot.host>
 
 RUN apt update \
     && apt upgrade -y \
