@@ -1,6 +1,7 @@
-# AIO Docker image
+# AIO Docker Image:
 This docker image has the following installed:
-Python2,
-Python3.7,
-Node.JS 14,
-Java 11
+
+NodeJS (Latest)
+Java 17
+Golang
+Python 3
