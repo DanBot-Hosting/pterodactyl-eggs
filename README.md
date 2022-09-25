@@ -5,7 +5,7 @@ You are welcomed to take any of these eggs and use them on Pterodactyl panel, ju
 To see the different docker images you can select a different branch.
 
 # Branches:
-[AIO](https://github.com/DanBot-Hosting/pterodactyl-eggs/tree/aio) The AIO dockerfile.
+[AIO](https://github.com/DanBot-Hosting/pterodactyl-eggs/tree/aio) - The AIO dockerfile.
 
 # Contributing:
 
