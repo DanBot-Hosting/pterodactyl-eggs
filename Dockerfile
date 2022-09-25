@@ -32,7 +32,10 @@ RUN apt-get update && \
     apt-get install -y software-properties-common
     
 # Python 2 & 3
-RUN apt -y install python python-pip python3 python3-pip
+RUN apt -y install python python-pip
+RUN add-apt-repository -y ppa:deadsnakes/ppa
+RUN apt-get -y update
+RUN apt-get -y install python3.10
 
 # Golang
 RUN apt -y install golang
