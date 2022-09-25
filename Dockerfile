@@ -5,9 +5,9 @@ MAINTAINER danielpmc, <dan@danbot.host>
 RUN apt update \
     && apt upgrade -y \
     && apt -y install curl software-properties-common locales git \
-    && apt-get install -y openjdk-17-jre \
-    && useradd -d /home/container -m container \
-    && apt-get update
+    && apt-get install -y default-jre \
+    && adduser container \
+    && apt-get update 
 
 # Grant sudo permissions to container user for commands
 RUN apt-get update && \
