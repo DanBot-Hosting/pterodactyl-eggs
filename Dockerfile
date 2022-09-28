@@ -6,6 +6,8 @@ RUN apt update \
     && apt upgrade -y \
     && apt -y install curl software-properties-common locales git \
     && apt-get install -y default-jre \
+    && apt-get install liblzma-dev \
+    && apt-get install lzma \
     && adduser container \
     && apt-get update 
 
