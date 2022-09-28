@@ -7,7 +7,7 @@
     "exported_at": "2022-09-27T20:11:46-05:00",
     "name": "AIO",
     "author": "dan@danbot.host",
-    "description": "Python2, Python3.7, Node.JS 14, Java 11",
+    "description": "Python2, Python3.7, Python3.10, Node.JS 18, Java 11",
     "features": null,
     "docker_images": {
         "danbothosting\/aio": "danbothosting\/aio"
