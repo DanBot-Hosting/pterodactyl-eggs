@@ -1,15 +1,19 @@
 {
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
     "meta": {
-        "version": "PTDL_v2"
+        "version": "PTDL_v2",
+        "update_url": null
     },
-    "exported_at": "2020-11-16T00:26:44-05:00",
+    "exported_at": "2022-09-27T20:11:46-05:00",
     "name": "AIO",
     "author": "dan@danbot.host",
     "description": "Python2, Python3.7, Node.JS 14, Java 11",
     "features": null,
-    "image": "danbothosting\/aio",
-    "startup": "${STARTUP_CMD}",
+    "docker_images": {
+        "danbothosting\/aio": "danbothosting\/aio"
+    },
+    "file_denylist": [],
+    "startup": "{{STARTUP_CMD}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"\",\r\n    \"userInteraction\": []\r\n}",
@@ -31,7 +35,8 @@
             "default_value": "bash",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required"
+            "rules": "required",
+            "field_type": "text"
         }
     ]
 }
