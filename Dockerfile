@@ -9,7 +9,8 @@ RUN apt update \
     && apt-get install liblzma-dev \
     && apt-get install lzma \
     && adduser container \
-    && apt-get update 
+    && apt-get update \ 
+    && apt -y install cmake
 
 # Grant sudo permissions to container user for commands
 RUN apt-get update && \
@@ -49,8 +50,6 @@ RUN apt -y install golang
 # Installing NodeJS dependencies for AIO.
 RUN npm i -g yarn pm2 
 
-# Installing NVM
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 USER container
 ENV  USER container
@@ -61,3 +60,6 @@ WORKDIR /home/container
 COPY ./entrypoint.sh /entrypoint.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]
+
+# Installing NVM
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
