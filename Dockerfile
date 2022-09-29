@@ -47,7 +47,10 @@ RUN pip3 install --upgrade pip
 RUN apt -y install golang
 
 # Installing NodeJS dependencies for AIO.
-RUN npm i -g yarn pm2
+RUN npm i -g yarn pm2 
+
+# Installing NVM
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 USER container
 ENV  USER container
