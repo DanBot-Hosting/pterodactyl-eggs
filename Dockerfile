@@ -6,8 +6,8 @@ RUN apt update \
     && apt upgrade -y \
     && apt -y install curl software-properties-common locales git \
     && apt-get install -y default-jre \
-    && apt-get install liblzma-dev \
-    && apt-get install lzma \
+    && apt-get -y install liblzma-dev \
+    && apt-get -y install lzma \
     && adduser container \
     && apt-get update \ 
     && apt -y install cmake
