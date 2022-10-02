@@ -10,6 +10,7 @@ To see the different docker images you can select a different branch.
 # Contributing:
 
 Fork the Repository, make changes, make pull request. Simple enough. Devs will go over PR to check over it. If approved, it gets merged. If not, it gets closed.
+If you want to suggest a egg, you can make a issue stating the requested change.
 
 # FYI:
 
