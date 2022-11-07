@@ -1,7 +1,7 @@
 # AIO Docker Image:
 This docker image has the following installed:
 
-1. NodeJS 16
+1. NodeJS LTS
  - yarn
  - pm2
  - Puppeteer support
