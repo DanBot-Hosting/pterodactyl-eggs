@@ -47,6 +47,15 @@ RUN pip3 install --upgrade pip
 # Golang
 RUN apt -y install golang
 
+#.NET Core Runtime and SDK
+RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+   && dpkg -i packages-microsoft-prod.deb \ 
+   && rm packages-microsoft-prod.deb \
+   && apt-get update \
+   && apt-get install -y apt-transport-https \
+   && apt-get update \
+   && apt-get install -y aspnetcore-runtime-6.0 dotnet-sdk-6.0 
+   
 # Install the system dependencies required for puppeteer support
 RUN apt-get install -y \
     fonts-liberation \
