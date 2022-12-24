@@ -29,7 +29,9 @@ RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt -y install build-essential \
     && apt -y install wget \ 
     && apt -y install curl
-    
+#nvm
+RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
 # Install basic software support
 RUN apt-get update && \
     apt-get install -y software-properties-common
