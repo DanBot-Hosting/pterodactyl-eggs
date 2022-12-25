@@ -47,10 +47,6 @@ RUN pip3 install --upgrade pip
 # Golang
 RUN apt -y install golang
 
-# Ping Command
-RUN apt-get update && \
-    apt-get install -y iputils-ping
-
 #.NET Core Runtime and SDK
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
    && dpkg -i packages-microsoft-prod.deb \ 
