@@ -35,12 +35,17 @@ RUN apt-get update && \
     apt-get install -y software-properties-common
     
 # Python 2 & 3
-RUN apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev \
-   && wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz \
+RUN apt update \
+   && apt -y install zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev \
+   && wget https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz \
    && tar -xf Python-3.10.*.tgz \
-   && cd Python-3.10.0 && ./configure --enable-optimizations && make -j 8 && make altinstall \
-   && rm -rf Python-3.10.0 \
-   && rm Python-3.10.0.tgz 
+   && cd Python-3.10.9 \
+   && ./configure --enable-optimizations \
+   && make -j $(nproc) \
+   && make altinstall \
+   && cd .. \
+   && rm -rf Python-3.10.9 \
+   && rm Python-3.10.*.tgz 
    
 # Upgrade Pip
 RUN apt -y install python python-pip python3-pip \
@@ -48,6 +53,7 @@ RUN apt -y install python python-pip python3-pip \
 
 # Golang
 RUN curl -LO https://get.golang.org/$(uname)/go_installer \
+   && export SHELL=/bin/bash \
    && chmod +x go_installer \
    && ./go_installer \
    && rm go_installer 
