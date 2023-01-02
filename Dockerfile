@@ -52,11 +52,10 @@ RUN apt -y install python python-pip python3-pip \
    && pip3 install --upgrade pip
 
 # Golang
-RUN curl -LO https://get.golang.org/$(uname)/go_installer \
-   && export SHELL=/bin/bash \
-   && chmod +x go_installer \
-   && ./go_installer \
-   && rm go_installer 
+RUN curl -OL https://golang.org/dl/go1.19.4.linux-amd64.tar.gz \
+   && tar -C /usr/local -xvf go1.19.4.linux-amd64.tar.gz   
+ENV PATH=$PATH:/usr/local/go/bin
+ENV GOROOT=/usr/local/go
 
 #.NET Core Runtime and SDK
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
