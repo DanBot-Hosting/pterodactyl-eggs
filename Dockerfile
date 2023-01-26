@@ -9,7 +9,8 @@ RUN apt update \
     && apt-get -y install lzma \
     && adduser container \
     && apt-get update \ 
-    && apt -y install cmake
+    && apt -y install cmake \
+    && apt -y install wget
 
 # Grant sudo permissions to container user for commands
 RUN apt-get update && \
