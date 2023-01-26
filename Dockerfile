@@ -5,7 +5,6 @@ MAINTAINER danielpmc, <dan@danbot.host>
 RUN apt update \
     && apt upgrade -y \
     && apt -y install curl software-properties-common locales git \
-    && apt-get install -y default-jre \
     && apt-get -y install liblzma-dev \
     && apt-get -y install lzma \
     && adduser container \
@@ -15,11 +14,21 @@ RUN apt update \
 # Grant sudo permissions to container user for commands
 RUN apt-get update && \
     apt-get -y install sudo
-
+    
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
+
+# OpenJDK 17 LTS
+RUN apt update \
+   && apt install -y libc6-i386 libc6-x32 \
+   && wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb -O jdk-17_linux-x64_bin.deb \
+   && apt install -y ./jdk-17_linux-x64_bin.deb \
+   && rm jdk-17_linux-x64_bin.deb
+   
+ENV JAVA_HOME=/usr/lib/jvm/jdk-17/
+ENV PATH=$PATH:$JAVA_HOME/bin
 
 # NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
@@ -29,10 +38,6 @@ RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt -y install build-essential \
     && apt -y install wget \ 
     && apt -y install curl
-    
-# Install basic software support
-RUN apt-get update && \
-    apt-get install -y software-properties-common
     
 # Python 2 & 3
 RUN apt update \
@@ -65,7 +70,7 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
    && apt-get install -y apt-transport-https \
    && apt-get update \
    && apt-get install -y aspnetcore-runtime-6.0 dotnet-sdk-6.0 
-   
+
 # Install the system dependencies required for puppeteer support
 RUN apt-get install -y \
     fonts-liberation \
