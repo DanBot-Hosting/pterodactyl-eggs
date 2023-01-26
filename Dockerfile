@@ -15,10 +15,6 @@ RUN apt update \
 RUN apt-get update && \
     apt-get -y install sudo
     
-# Install basic software support
-RUN apt-get update && \
-    apt-get install -y software-properties-common
-    
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
