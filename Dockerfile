@@ -5,7 +5,7 @@ MAINTAINER danielpmc, <dan@danbot.host>
 RUN apt update \
     && apt upgrade -y \
     && apt -y install curl software-properties-common locales git \
-    && apt-get install -y openjdk-17-jre \
+    && apt-get install -y default-jre \
     && apt-get -y install liblzma-dev \
     && apt-get -y install lzma \
     && adduser container \
