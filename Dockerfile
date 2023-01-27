@@ -43,23 +43,23 @@ RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
 # Python 2 & 3
 RUN apt update \
    && apt -y install zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev \
-   && wget https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz \
-   && tar -xf Python-3.10.*.tgz \
-   && cd Python-3.10.9 \
+   && wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz \
+   && tar -xf Python-3.11.*.tgz \
+   && cd Python-3.11.1 \
    && ./configure --enable-optimizations \
    && make -j $(nproc) \
    && make altinstall \
    && cd .. \
-   && rm -rf Python-3.10.9 \
-   && rm Python-3.10.*.tgz 
+   && rm -rf Python-3.11.1 \
+   && rm Python-3.11.*.tgz 
    
 # Upgrade Pip
 RUN apt -y install python python-pip python3-pip \
    && pip3 install --upgrade pip
 
 # Golang
-RUN curl -OL https://golang.org/dl/go1.19.4.linux-amd64.tar.gz \
-   && tar -C /usr/local -xvf go1.19.4.linux-amd64.tar.gz   
+RUN curl -OL https://golang.org/dl/go1.19.5.linux-amd64.tar.gz \
+   && tar -C /usr/local -xvf go1.19.5.linux-amd64.tar.gz   
 ENV PATH=$PATH:/usr/local/go/bin
 ENV GOROOT=/usr/local/go
 
