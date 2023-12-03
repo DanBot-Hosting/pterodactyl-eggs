@@ -10,7 +10,8 @@ RUN apt update \
     && adduser container \
     && apt-get update \ 
     && apt -y install cmake \
-    && apt -y install wget
+    && apt -y install wget \
+    && apt-get install bison
 
 # Grant sudo permissions to container user for commands
 RUN apt-get update && \
@@ -57,8 +58,8 @@ RUN apt -y install python python-pip python3-pip \
    && pip3 install --upgrade pip
 
 # Golang
-RUN curl -OL https://golang.org/dl/go1.19.5.linux-amd64.tar.gz \
-   && tar -C /usr/local -xvf go1.19.5.linux-amd64.tar.gz   
+RUN curl -OL https://golang.org/dl/go1.21.4.linux-amd64.tar.gz \
+   && tar -C /usr/local -xvf go1.21.4.linux-amd64.tar.gz
 ENV PATH=$PATH:/usr/local/go/bin
 ENV GOROOT=/usr/local/go
 
