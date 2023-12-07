@@ -108,7 +108,7 @@ RUN apt-get install -y \
     xdg-utils
 
 # Installing NodeJS dependencies for AIO.
-RUN npm i -g yarn pm2 
+RUN npm i -g yarn pm2 pnpm
 
 
 USER container
