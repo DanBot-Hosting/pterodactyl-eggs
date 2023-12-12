@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-12-12T15:16:39+08:00",
+    "exported_at": "2023-12-12T15:18:20+08:00",
     "name": "OpenX",
     "author": "dan@danbot.host",
     "description": "OpenX upload server, Made by DanBotHosting LTD.",
@@ -22,7 +22,7 @@
         "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"Admin.Password\": \"{{server.build.env.PASSWORD}}\",\r\n            \"Web.Port\": \"{{server.build.default.port}}\",\r\n            \"fileNameLength\": \"{{server.build.env.FILELENGTH}}\",\r\n            \"maxUploadSize\": \"{{server.build.env.MAXUPLOAD}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"\"\r\n}",
         "logs": "{}",
-        "stop": "^c"
+        "stop": "^C"
     },
     "scripts": {
         "installation": {
