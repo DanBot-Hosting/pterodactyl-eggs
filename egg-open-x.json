@@ -4,13 +4,17 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-11-19T15:21:51+00:00",
+    "exported_at": "2023-12-12T15:16:39+08:00",
     "name": "OpenX",
     "author": "dan@danbot.host",
     "description": "OpenX upload server, Made by DanBotHosting LTD.",
     "features": null,
     "docker_images": {
-        "quay.io\/parkervcp\/pterodactyl-images:debian_nodejs-16": "quay.io\/parkervcp\/pterodactyl-images:debian_nodejs-16"
+        "Node.js 20": "ghcr.io\/parkervcp\/yolks:nodejs_20",
+        "Node.js 19": "ghcr.io\/parkervcp\/yolks:nodejs_19",
+        "Node.js 18": "ghcr.io\/parkervcp\/yolks:nodejs_18",
+        "Node.js 17": "ghcr.io\/parkervcp\/yolks:nodejs_17",
+        "Node.js 16": "ghcr.io\/parkervcp\/yolks:nodejs_16"
     },
     "file_denylist": [],
     "startup": "if [[ -d .git ]] && [[ {{AUTO_UPDATE}} == \"1\" ]]; then git pull; fi; \/usr\/local\/bin\/node \/home\/container\/Src\/index.js",
@@ -22,9 +26,9 @@
     },
     "scripts": {
         "installation": {
-            "script": "#\/bin\/ash\r\n\r\napk add --no-cache git make gcc g++ python\r\n\r\ncd \/mnt\/server\r\n\r\ngit clone https:\/\/github.com\/Wizqdev\/OpenX\/ .\r\n\r\n\/usr\/local\/bin\/npm install\r\n\r\necho -e \"install complete\"\r\nexit 0",
-            "container": "node:10-alpine",
-            "entrypoint": "ash"
+            "script": "#!\/bin\/bash\r\n\r\napt update\r\napt install -y git\r\n\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\n\r\n# Clone repository\r\necho -e \"Cloning repository\"\r\ngit clone https:\/\/github.com\/Wizqdev\/OpenX .\r\n\r\n# Install dependencies\r\necho -e \"Installing dependencies\"\r\n\/usr\/local\/bin\/npm install\r\n\r\necho -e \"Install complete\"\r\nexit 0",
+            "container": "node:20-slim",
+            "entrypoint": "bash"
         }
     },
     "variables": [
