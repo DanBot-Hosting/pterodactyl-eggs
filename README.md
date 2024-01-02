@@ -4,6 +4,7 @@ This docker image has the following installed:
 1. NodeJS LTS
  - yarn
  - pm2
+ - pnpm
  - Puppeteer support
 
 2. Java JDK (`21`)
