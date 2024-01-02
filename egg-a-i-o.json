@@ -30,7 +30,7 @@
     "variables": [
         {
             "name": "Startup Command",
-            "description": "The startup command for your bot to use",
+            "description": "The startup command for your server to use.",
             "env_variable": "STARTUP_CMD",
             "default_value": "bash",
             "user_viewable": true,
