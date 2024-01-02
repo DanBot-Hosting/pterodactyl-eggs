@@ -6,10 +6,9 @@ This docker image has the following installed:
  - pm2
  - Puppeteer support
 
-2. Java 17
+2. Java JDK (`21`)
 
-3. Golang
+3. Golang (`1.21.5`)
 
-4. Python
- - Python 3.11
+4. Python (`3.12.1`)
 
