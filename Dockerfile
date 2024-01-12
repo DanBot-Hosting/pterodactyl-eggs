@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye-slim
 
 MAINTAINER danielpmc, <dan@danbot.host>
 
@@ -70,6 +70,11 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
    && apt-get install -y apt-transport-https \
    && apt-get update \
    && apt-get install -y aspnetcore-runtime-6.0 dotnet-sdk-6.0 
+
+# Install the speedtest by ookla
+RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
+    && apt-get install speedtest -y
+# For calling speedtest, enter command "speedtest --accept-license YES"
 
 # Install the system dependencies required for puppeteer support
 RUN apt-get install -y \
