@@ -29,7 +29,7 @@ RUN apt update \
    && apt install -y ./jdk-21_linux-x64_bin.deb \
    && rm jdk-21_linux-x64_bin.deb
    
-ENV JAVA_HOME=/usr/lib/jvm/jdk-17/
+ENV JAVA_HOME=/usr/lib/jvm/jdk-21/
 ENV PATH=$PATH:$JAVA_HOME/bin
 
 # NodeJS
@@ -56,7 +56,7 @@ RUN apt update \
    && rm Python-3.12.*.tgz 
    
 # Upgrade Pip
-RUN apt -y install python python-pip python3-pip \
+RUN apt -y install python3 python3-pip \
    && pip3 install --upgrade pip
 
 # Golang
