@@ -38,6 +38,9 @@ RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt -y install ffmpeg \
     && apt -y install make \
     && apt -y install build-essential 
+
+# Install NVM
+run curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
     
 # Python 2 & 3
 RUN apt update \
