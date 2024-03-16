@@ -22,7 +22,7 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 
-# OpenJDK 17 LTS
+# OpenJDK 21 LTS
 RUN apt update \
    && apt install -y libc6-i386 libc6-x32 \
    && wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb -O jdk-21_linux-x64_bin.deb \
@@ -34,10 +34,7 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 
 # NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
-    && apt -y install nodejs \
-    && apt -y install ffmpeg \
-    && apt -y install make \
-    && apt -y install build-essential 
+    && apt-get -y install nodejs imagemagick ffmpeg make build-essential 
 
 # Install NVM
 run curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
@@ -66,7 +63,7 @@ ENV PATH=$PATH:/usr/local/go/bin
 ENV GOROOT=/usr/local/go
 
 #.NET Core Runtime and SDK
-RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
    && dpkg -i packages-microsoft-prod.deb \ 
    && rm packages-microsoft-prod.deb \
    && apt-get update \
