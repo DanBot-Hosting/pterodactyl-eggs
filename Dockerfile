@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/debian:bullseye-slim
+FROM debian:bullseye-slim
 
 MAINTAINER danielpmc, <dan@danbot.host>
 
