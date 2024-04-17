@@ -1,5 +1,4 @@
-FROM debian:bullseye-slim
-
+FROM alpine:latest
 MAINTAINER danielpmc, <dan@danbot.host>
 
 RUN apt update \
@@ -12,67 +11,14 @@ RUN apt update \
     && apt -y install cmake \
     && apt -y install wget
 
-# Grant sudo permissions to container user for commands
-RUN apt-get update && \
-    apt-get -y install sudo
-    
+
+RUN apk --update --no-cache add ca-certificates nginx
+RUN apk add php8.2 php8.2-fpm php8.2-mcrypt php8.2-soap php8.2-openssl php8.2-gmp php8.2-pdo_odbc php8.2-json php8.2-dom php8.2-pdo php8.2-zip php8.2-mysqli php8.2-sqlite3 php8.2-apcu php8.2-pdo_pgsql php8.2-bcmath php8.2-gd php8.2-odbc php8.2-pdo_mysql php8.2-pdo_sqlite php8.2-gettext php8.2-xmlreader php8.2-xmlrpc php8.2-bz2 php8.2-iconv php8.2-pdo_dblib php8.2-curl php8.2-ctype php8.2-phar php8.2-fileinfo php8.2-mbstring php8.2-tokenizer
+
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
-
-
-# OpenJDK 17 LTS
-RUN apt update \
-   && apt install -y libc6-i386 libc6-x32 \
-   && wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb -O jdk-21_linux-x64_bin.deb \
-   && apt install -y ./jdk-21_linux-x64_bin.deb \
-   && rm jdk-21_linux-x64_bin.deb
-   
-ENV JAVA_HOME=/usr/lib/jvm/jdk-21/
-ENV PATH=$PATH:$JAVA_HOME/bin
-
-# NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
-    && apt -y install nodejs \
-    && apt -y install ffmpeg \
-    && apt -y install make \
-    && apt -y install build-essential 
-
-# Install NVM
-run curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-    
-# Python 2 & 3
-RUN apt update \
-   && apt -y install zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev \
-   && wget https://www.python.org/ftp/python/3.12.1/Python-3.12.1.tgz \
-   && tar -xf Python-3.12.*.tgz \
-   && cd Python-3.12.1 \
-   && ./configure --enable-optimizations \
-   && make -j $(nproc) \
-   && make altinstall \
-   && cd .. \
-   && rm -rf Python-3.12.1 \
-   && rm Python-3.12.*.tgz 
-   
-# Upgrade Pip
-RUN apt -y install python3 python3-pip \
-   && pip3 install --upgrade pip
-
-# Golang
-RUN curl -OL https://golang.org/dl/go1.21.5.linux-amd64.tar.gz \
-   && tar -C /usr/local -xvf go1.21.5.linux-amd64.tar.gz   
-ENV PATH=$PATH:/usr/local/go/bin
-ENV GOROOT=/usr/local/go
-
-#.NET Core Runtime and SDK
-RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
-   && dpkg -i packages-microsoft-prod.deb \ 
-   && rm packages-microsoft-prod.deb \
-   && apt-get update \
-   && apt-get install -y apt-transport-https \
-   && apt-get update \
-   && apt-get install -y aspnetcore-runtime-6.0 dotnet-sdk-6.0 
 
 # Install the speedtest by ookla
 RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash \
@@ -114,9 +60,6 @@ RUN apt-get install -y \
     libxtst6 \
     xdg-utils
 
-# Installing NodeJS dependencies for AIO.
-RUN npm i -g yarn pm2 pnpm
-
 
 USER container
 ENV  USER container
@@ -126,4 +69,4 @@ WORKDIR /home/container
 
 COPY ./entrypoint.sh /entrypoint.sh
 
-CMD ["/bin/bash", "/entrypoint.sh"]
+CMD ["/bin/ash", "/entrypoint.sh"]
