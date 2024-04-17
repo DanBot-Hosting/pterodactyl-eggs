@@ -2,6 +2,16 @@ FROM debian:bullseye-slim
 
 MAINTAINER danielpmc, <dan@danbot.host>
 
+RUN apt update \
+    && apt upgrade -y \
+    && apt -y install curl software-properties-common locales git \
+    && apt-get -y install liblzma-dev \
+    && apt-get -y install lzma \
+    && adduser container \
+    && apt-get update \
+    && apt -y install cmake \
+    && apt -y install wget
+
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
