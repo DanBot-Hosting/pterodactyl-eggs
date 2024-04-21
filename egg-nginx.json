@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-04-21T03:11:07-04:00",
+    "exported_at": "2024-04-21T03:14:54-04:00",
     "name": "Nginx",
     "author": "unknown@unknown.com",
     "description": "Nginx",
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --update add git\r\n\r\ngit clone https:\/\/gitlab.com\/tenten8401\/pterodactyl-nginx .\/temp\r\n\r\ncp -r .\/temp\/nginx \/mnt\/server\/\r\ncp -r .\/temp\/php-fpm \/mnt\/server\/\r\ncp -r .\/temp\/webroot \/mnt\/server\/\r\ncp .\/temp\/start.sh \/mnt\/server\/\r\n\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp",
+            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --update add git\r\n\r\ngit clone https:\/\/github.com\/DanBot-Hosting\/pterodactyl-eggs -b nginx .\/temp\r\n\r\ncp -r .\/temp\/nginx \/mnt\/server\/\r\ncp -r .\/temp\/php-fpm \/mnt\/server\/\r\ncp -r .\/temp\/webroot \/mnt\/server\/\r\ncp .\/temp\/start.sh \/mnt\/server\/\r\ncp -r .\/temp\/logs \/mnt\/server\/\r\n\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }
