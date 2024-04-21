@@ -4,10 +4,10 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-09-27T20:11:46-05:00",
+    "exported_at": "2024-04-21T14:59:52+08:00",
     "name": "AIO",
     "author": "dan@danbot.host",
-    "description": "NodeJS LTS, Java (OpenJDK) 17, Python 3.11+, Golang, .NET Core, NodeJS Puppeteer/pm2/yarn. Made by DanBot Hosting.",
+    "description": "NodeJS LTS, Java (OpenJDK) 21, Python 3.11+, Golang, .NET Core, NodeJS Puppeteer\/pm2\/yarn. Made by DanBot Hosting.",
     "features": null,
     "docker_images": {
         "danbothosting\/aio": "danbothosting\/aio"
